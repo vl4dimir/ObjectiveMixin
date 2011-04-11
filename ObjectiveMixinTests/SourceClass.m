@@ -21,9 +21,8 @@
 }
 
 - (void) methodUsingAnInstanceVariable {
-	jazzatazz = [[[self class] description] retain];
+	self.jazzatazz = [[self class] description];
 	NSLog(@"This method uses an instance variable which has the following value: %@", jazzatazz);
-	[jazzatazz release];
 }
 
 - (void) dealloc {

@@ -14,9 +14,6 @@
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass
 {
-	// Mixin instance variables
-	// ...
-	
 	// Mixin methods
 	unsigned int methodCount = 0;
 	Method* methodList = class_copyMethodList(sourceClass, &methodCount);
@@ -28,21 +25,6 @@
 		const char* types = method_getTypeEncoding(m);
 		class_replaceMethod(destinationClass, name, imp, types);
 	}
-}
-
-- (id) init
-{
-	self = [super init];
-	if (self) {
-		// Initialization code here.
-	}
-	
-	return self;
-}
-
-- (void) dealloc
-{
-	[super dealloc];
 }
 
 @end

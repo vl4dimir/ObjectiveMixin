@@ -36,7 +36,7 @@
 	
 	[(id)dest helloWorld];
 	[(id)dest methodWithAnArgument:[NSNumber numberWithInt:rand()]];
-	//[(id)dest methodUsingAnInstanceVariable];
+	[(id)dest methodUsingAnInstanceVariable];
 }
 
 @end

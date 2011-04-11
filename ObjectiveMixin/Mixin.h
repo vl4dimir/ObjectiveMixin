@@ -10,8 +10,7 @@
 
 
 @interface Mixin : NSObject {
-@private
-    
+	
 }
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass;

@@ -1,7 +1,7 @@
 ObjectiveMixin
 ==============
 
-The ObjectiveMixin class is a quick hack that allows Objective-C classes to receive additional functionality at runtime, similar to the way [Ruby mixins][1] work. You can extend a class using methods defined in some other class, and gain that class's functionality for free. Since Objective-C doesn't support multiple inheritance, this can be quite useful at times when subclassing isn't an option and protocols don't do exactly what you want.
+ObjectiveMixin allows Objective-C classes to receive additional functionality at runtime, similar to the way [Ruby mixins][1] work. You can extend a class using methods defined in some other class, and gain that class's functionality for free. Since Objective-C doesn't support multiple inheritance, this can be quite useful at times when subclassing isn't an option and protocols don't do exactly what you want.
 
 This works by taking advantage of the Objective-C runtime environment and its ability to add methods to an existing class while the program is executing. By specifying source and destination classes when performing a "mixing" operation, the destination class gains all of the source class's method implementations.
 

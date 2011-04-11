@@ -42,7 +42,7 @@ Even though the `myClassName` instance variable does not exist in `DestinationCl
 
 Note that in order to avoid "object may not respond to selector" compiler warnings you have to cast the `destination` variable to the `id` type (or alternatively, to `SourceClass`, but `id` is cleaner in my opinion).
 
-You can also use `[Mixin from:[SourceClass class] into:[DestinationClass class] followInheritance:YES];` to mixin all `SourceClass`'s inherited methods, up to the common ancestor of `SourceClass` and `DestinationClass`. In other words, if we have the following inheritance trees: `SourceClass -> BaseClass -> NSObject` and `DestinationClass -> NSObject`, then the `from:into:followInheritance:` method will mix in methods from both `SourceClass` and `BaseClass` into `DestinationClass`, since `NSObject` is their common ancestor.
+You can also use `[Mixin from:[SourceClass class] into:[DestinationClass class] followInheritance:YES];` to mix in all `SourceClass`'s inherited methods, up to the common ancestor of `SourceClass` and `DestinationClass`. In other words, if we have the following inheritance trees: `SourceClass -> BaseClass -> NSObject` and `DestinationClass -> NSObject`, then the `from:into:followInheritance:` method will mix in methods from both `SourceClass` and `BaseClass` into `DestinationClass`, but not from `NSObject` since it's their common ancestor (they already inherit its methods).
 
 Why?
 ----

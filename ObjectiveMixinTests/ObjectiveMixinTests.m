@@ -9,6 +9,7 @@
 #import "ObjectiveMixinTests.h"
 #import "Mixin.h"
 #import "SourceClass.h"
+#import "ChildSourceClass.h"
 #import "DestinationClass.h"
 
 @implementation ObjectiveMixinTests
@@ -32,11 +33,19 @@
 - (void)testMethods
 {
 	DestinationClass* dest = [[[DestinationClass alloc] init] autorelease];
-	[Mixin from:[SourceClass class] into:[DestinationClass class]];
 	
+	[Mixin from:[SourceClass class] into:[DestinationClass class]];
 	[(id)dest helloWorld];
 	[(id)dest methodWithAnArgument:[NSNumber numberWithInt:rand()]];
 	[(id)dest methodUsingAnInstanceVariable];
+}
+
+- (void) testInheritedMethods {
+	DestinationClass* dest = [[[DestinationClass alloc] init] autorelease];
+	
+	[Mixin from:[ChildSourceClass class] into:[DestinationClass class] followInheritance:YES];
+	[(id)dest childMethodCallingParentMethod];
+	[(id)dest helloWorld];
 }
 
 @end

@@ -18,6 +18,7 @@
 		E772036F13530A7C00C1B257 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
 		E772037513530B0600C1B257 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77203221352FCE000C1B257 /* Cocoa.framework */; };
 		E772037C13530B0B00C1B257 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
+		E7720380135334B300C1B257 /* ChildSourceClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E772037F135334B300C1B257 /* ChildSourceClass.m */; };
 		E7DE3B4813165EA600C96724 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DE3B4713165EA600C96724 /* Foundation.framework */; };
 		E7DE3B4B13165EA600C96724 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B4A13165EA600C96724 /* main.m */; };
 		E7DE3B5613165FB500C96724 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
@@ -52,11 +53,11 @@
 		E772033C1352FDE900C1B257 /* DestinationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationClass.m; sourceTree = "<group>"; };
 		E772034A13530A6700C1B257 /* libObjectiveMixinCocoaTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveMixinCocoaTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E772034E13530A6700C1B257 /* ObjectiveMixinCocoaTouch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixinCocoaTouch-Prefix.pch"; sourceTree = "<group>"; };
-		E772035513530A6700C1B257 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E772035813530A6700C1B257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E772037413530B0600C1B257 /* ObjectiveMixinCocoa.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = ObjectiveMixinCocoa.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E772037813530B0600C1B257 /* ObjectiveMixinCocoa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixinCocoa-Prefix.pch"; sourceTree = "<group>"; };
 		E772037D1353198600C1B257 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		E772037E135334B300C1B257 /* ChildSourceClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSourceClass.h; sourceTree = "<group>"; };
+		E772037F135334B300C1B257 /* ChildSourceClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSourceClass.m; sourceTree = "<group>"; };
 		E7DE3B4313165EA600C96724 /* ObjectiveMixin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveMixin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DE3B4713165EA600C96724 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7DE3B4A13165EA600C96724 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +123,8 @@
 				E77203391352FDD800C1B257 /* SourceClass.m */,
 				E772033B1352FDE900C1B257 /* DestinationClass.h */,
 				E772033C1352FDE900C1B257 /* DestinationClass.m */,
+				E772037E135334B300C1B257 /* ChildSourceClass.h */,
+				E772037F135334B300C1B257 /* ChildSourceClass.m */,
 			);
 			path = ObjectiveMixinTests;
 			sourceTree = "<group>";
@@ -197,8 +200,6 @@
 			children = (
 				E7DE3B4713165EA600C96724 /* Foundation.framework */,
 				E77203221352FCE000C1B257 /* Cocoa.framework */,
-				E772035513530A6700C1B257 /* UIKit.framework */,
-				E772035813530A6700C1B257 /* CoreGraphics.framework */,
 				E77203241352FCE000C1B257 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -375,6 +376,7 @@
 				E77203371352FD2F00C1B257 /* Mixin.m in Sources */,
 				E772033A1352FDD800C1B257 /* SourceClass.m in Sources */,
 				E772033D1352FDE900C1B257 /* DestinationClass.m in Sources */,
+				E7720380135334B300C1B257 /* ChildSourceClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +600,7 @@
 				E772036913530A6700C1B257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E772037913530B0600C1B257 /* Build configuration list for PBXNativeTarget "ObjectiveMixinCocoa" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +609,7 @@
 				E772037B13530B0600C1B257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7DE3B3D13165EA500C96724 /* Build configuration list for PBXProject "ObjectiveMixin" */ = {
 			isa = XCConfigurationList;

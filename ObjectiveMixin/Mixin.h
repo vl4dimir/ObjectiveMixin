@@ -14,5 +14,6 @@
 }
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass;
++ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance;
 
 @end

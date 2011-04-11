@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E77203231352FCE000C1B257 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77203221352FCE000C1B257 /* Cocoa.framework */; };
+		E772032D1352FCE000C1B257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E772032B1352FCE000C1B257 /* InfoPlist.strings */; };
+		E77203301352FCE000C1B257 /* ObjectiveMixinTests.h in Resources */ = {isa = PBXBuildFile; fileRef = E772032F1352FCE000C1B257 /* ObjectiveMixinTests.h */; };
+		E77203321352FCE000C1B257 /* ObjectiveMixinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E77203311352FCE000C1B257 /* ObjectiveMixinTests.m */; };
+		E77203371352FD2F00C1B257 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
+		E772033A1352FDD800C1B257 /* SourceClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E77203391352FDD800C1B257 /* SourceClass.m */; };
+		E772033D1352FDE900C1B257 /* DestinationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E772033C1352FDE900C1B257 /* DestinationClass.m */; };
 		E7DE3B4813165EA600C96724 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DE3B4713165EA600C96724 /* Foundation.framework */; };
 		E7DE3B4B13165EA600C96724 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B4A13165EA600C96724 /* main.m */; };
+		E7DE3B5613165FB500C96724 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,14 +32,38 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E77203211352FCE000C1B257 /* ObjectiveMixinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveMixinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E77203221352FCE000C1B257 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E77203251352FCE000C1B257 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E77203261352FCE000C1B257 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E77203271352FCE000C1B257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E772032A1352FCE000C1B257 /* ObjectiveMixinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjectiveMixinTests-Info.plist"; sourceTree = "<group>"; };
+		E772032C1352FCE000C1B257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E772032E1352FCE000C1B257 /* ObjectiveMixinTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixinTests-Prefix.pch"; sourceTree = "<group>"; };
+		E772032F1352FCE000C1B257 /* ObjectiveMixinTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveMixinTests.h; sourceTree = "<group>"; };
+		E77203311352FCE000C1B257 /* ObjectiveMixinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveMixinTests.m; sourceTree = "<group>"; };
+		E77203381352FDD800C1B257 /* SourceClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceClass.h; sourceTree = "<group>"; };
+		E77203391352FDD800C1B257 /* SourceClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceClass.m; sourceTree = "<group>"; };
+		E772033B1352FDE900C1B257 /* DestinationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationClass.h; sourceTree = "<group>"; };
+		E772033C1352FDE900C1B257 /* DestinationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationClass.m; sourceTree = "<group>"; };
 		E7DE3B4313165EA600C96724 /* ObjectiveMixin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveMixin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DE3B4713165EA600C96724 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7DE3B4A13165EA600C96724 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E7DE3B4D13165EA600C96724 /* ObjectiveMixin-Prefix.pch */ = {isa = PBXFileReference; path = "ObjectiveMixin-Prefix.pch"; sourceTree = "<group>"; };
+		E7DE3B4D13165EA600C96724 /* ObjectiveMixin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixin-Prefix.pch"; sourceTree = "<group>"; };
 		E7DE3B4E13165EA600C96724 /* ObjectiveMixin.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ObjectiveMixin.1; sourceTree = "<group>"; };
+		E7DE3B5413165FB500C96724 /* Mixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixin.h; sourceTree = "<group>"; };
+		E7DE3B5513165FB500C96724 /* Mixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E772031D1352FCE000C1B257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E77203231352FCE000C1B257 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7DE3B4013165EA600C96724 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,10 +75,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E77203241352FCE000C1B257 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E77203251352FCE000C1B257 /* AppKit.framework */,
+				E77203261352FCE000C1B257 /* CoreData.framework */,
+				E77203271352FCE000C1B257 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E77203281352FCE000C1B257 /* ObjectiveMixinTests */ = {
+			isa = PBXGroup;
+			children = (
+				E77203291352FCE000C1B257 /* Supporting Files */,
+				E772032F1352FCE000C1B257 /* ObjectiveMixinTests.h */,
+				E77203311352FCE000C1B257 /* ObjectiveMixinTests.m */,
+				E77203381352FDD800C1B257 /* SourceClass.h */,
+				E77203391352FDD800C1B257 /* SourceClass.m */,
+				E772033B1352FDE900C1B257 /* DestinationClass.h */,
+				E772033C1352FDE900C1B257 /* DestinationClass.m */,
+			);
+			path = ObjectiveMixinTests;
+			sourceTree = "<group>";
+		};
+		E77203291352FCE000C1B257 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E772032A1352FCE000C1B257 /* ObjectiveMixinTests-Info.plist */,
+				E772032B1352FCE000C1B257 /* InfoPlist.strings */,
+				E772032E1352FCE000C1B257 /* ObjectiveMixinTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E7DE3B3813165EA500C96724 = {
 			isa = PBXGroup;
 			children = (
 				E7DE3B4913165EA600C96724 /* ObjectiveMixin */,
+				E77203281352FCE000C1B257 /* ObjectiveMixinTests */,
 				E7DE3B4613165EA600C96724 /* Frameworks */,
 				E7DE3B4413165EA600C96724 /* Products */,
 			);
@@ -56,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E7DE3B4313165EA600C96724 /* ObjectiveMixin */,
+				E77203211352FCE000C1B257 /* ObjectiveMixinTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				E7DE3B4713165EA600C96724 /* Foundation.framework */,
+				E77203221352FCE000C1B257 /* Cocoa.framework */,
+				E77203241352FCE000C1B257 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,9 +141,10 @@
 		E7DE3B4913165EA600C96724 /* ObjectiveMixin */ = {
 			isa = PBXGroup;
 			children = (
-				E7DE3B4A13165EA600C96724 /* main.m */,
-				E7DE3B4E13165EA600C96724 /* ObjectiveMixin.1 */,
 				E7DE3B4C13165EA600C96724 /* Supporting Files */,
+				E7DE3B4A13165EA600C96724 /* main.m */,
+				E7DE3B5413165FB500C96724 /* Mixin.h */,
+				E7DE3B5513165FB500C96724 /* Mixin.m */,
 			);
 			path = ObjectiveMixin;
 			sourceTree = "<group>";
@@ -81,6 +152,7 @@
 		E7DE3B4C13165EA600C96724 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7DE3B4E13165EA600C96724 /* ObjectiveMixin.1 */,
 				E7DE3B4D13165EA600C96724 /* ObjectiveMixin-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -89,6 +161,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E77203201352FCE000C1B257 /* ObjectiveMixinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E77203351352FCE000C1B257 /* Build configuration list for PBXNativeTarget "ObjectiveMixinTests" */;
+			buildPhases = (
+				E772031C1352FCE000C1B257 /* Sources */,
+				E772031D1352FCE000C1B257 /* Frameworks */,
+				E772031E1352FCE000C1B257 /* Resources */,
+				E772031F1352FCE000C1B257 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectiveMixinTests;
+			productName = ObjectiveMixinTests;
+			productReference = E77203211352FCE000C1B257 /* ObjectiveMixinTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		E7DE3B4213165EA600C96724 /* ObjectiveMixin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7DE3B5113165EA600C96724 /* Build configuration list for PBXNativeTarget "ObjectiveMixin" */;
@@ -124,22 +214,115 @@
 			projectRoot = "";
 			targets = (
 				E7DE3B4213165EA600C96724 /* ObjectiveMixin */,
+				E77203201352FCE000C1B257 /* ObjectiveMixinTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		E772031E1352FCE000C1B257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E772032D1352FCE000C1B257 /* InfoPlist.strings in Resources */,
+				E77203301352FCE000C1B257 /* ObjectiveMixinTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E772031F1352FCE000C1B257 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		E772031C1352FCE000C1B257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E77203321352FCE000C1B257 /* ObjectiveMixinTests.m in Sources */,
+				E77203371352FD2F00C1B257 /* Mixin.m in Sources */,
+				E772033A1352FDD800C1B257 /* SourceClass.m in Sources */,
+				E772033D1352FDE900C1B257 /* DestinationClass.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7DE3B3F13165EA600C96724 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E7DE3B4B13165EA600C96724 /* main.m in Sources */,
+				E7DE3B5613165FB500C96724 /* Mixin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		E772032B1352FCE000C1B257 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E772032C1352FCE000C1B257 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		E77203331352FCE000C1B257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjectiveMixinTests/ObjectiveMixinTests-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "ObjectiveMixinTests/ObjectiveMixinTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E77203341352FCE000C1B257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjectiveMixinTests/ObjectiveMixinTests-Prefix.pch";
+				INFOPLIST_FILE = "ObjectiveMixinTests/ObjectiveMixinTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		E7DE3B4F13165EA600C96724 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -200,6 +383,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E77203351352FCE000C1B257 /* Build configuration list for PBXNativeTarget "ObjectiveMixinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E77203331352FCE000C1B257 /* Debug */,
+				E77203341352FCE000C1B257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E7DE3B3D13165EA500C96724 /* Build configuration list for PBXProject "ObjectiveMixin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -216,6 +407,7 @@
 				E7DE3B5313165EA600C96724 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

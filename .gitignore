@@ -1,0 +1,6 @@
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+*.DS_Store
+ObjectiveMixin.xcodeproj/xcuserdata/*
+ObjectiveMixin.xcodeproj/project.xcworkspace/xcuserdata/*

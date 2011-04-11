@@ -56,6 +56,7 @@
 		E772035813530A6700C1B257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E772037413530B0600C1B257 /* ObjectiveMixinCocoa.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = ObjectiveMixinCocoa.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E772037813530B0600C1B257 /* ObjectiveMixinCocoa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixinCocoa-Prefix.pch"; sourceTree = "<group>"; };
+		E772037D1353198600C1B257 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E7DE3B4313165EA600C96724 /* ObjectiveMixin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveMixin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DE3B4713165EA600C96724 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7DE3B4A13165EA600C96724 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		E7DE3B3813165EA500C96724 = {
 			isa = PBXGroup;
 			children = (
+				E772037D1353198600C1B257 /* README.md */,
 				E7DE3B4913165EA600C96724 /* ObjectiveMixin */,
 				E77203281352FCE000C1B257 /* ObjectiveMixinTests */,
 				E772034C13530A6700C1B257 /* ObjectiveMixinCocoaTouch */,

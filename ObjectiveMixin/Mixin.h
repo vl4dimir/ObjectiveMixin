@@ -17,3 +17,12 @@
 + (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance;
 
 @end
+
+
+// A category on NSObject, for convenience. It uses the Mixin class internally.
+@interface NSObject (Mixin)
+
+- (void) mixinFrom:(Class)sourceClass;
+- (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance;
+
+@end

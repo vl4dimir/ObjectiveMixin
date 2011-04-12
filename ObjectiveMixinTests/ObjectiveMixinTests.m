@@ -48,4 +48,11 @@
 	[(id)dest helloWorld];
 }
 
+- (void) testNSObjectCategory {
+	DestinationClass* dest = [[[DestinationClass alloc] init] autorelease];
+	[dest mixinFrom:[SourceClass class]];
+	
+	[(id)dest helloWorld];
+}
+
 @end

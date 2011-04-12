@@ -47,3 +47,16 @@
 }
 
 @end
+
+
+@implementation NSObject (Mixin)
+
+- (void) mixinFrom:(Class)sourceClass {
+	[Mixin from:sourceClass into:[self class]];
+}
+
+- (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance {
+	[Mixin from:sourceClass into:[self class] followInheritance:followInheritance];
+}
+
+@end

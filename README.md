@@ -44,6 +44,14 @@ Note that in order to avoid "object may not respond to selector" compiler warnin
 
 You can also use `[Mixin from:[SourceClass class] into:[DestinationClass class] followInheritance:YES];` to mix in all `SourceClass`'s inherited methods, up to the common ancestor of `SourceClass` and `DestinationClass`. In other words, if we have the following inheritance trees: `SourceClass -> BaseClass -> NSObject` and `DestinationClass -> NSObject`, then the `from:into:followInheritance:` method will mix in methods from both `SourceClass` and `BaseClass` into `DestinationClass`, but not from `NSObject` since it's their common ancestor (they already inherit its methods).
 
+There's also a convenient category defined in top of `NSObject` (it's defined in `Mixin.h`), so you can use it instead of calling `Mixin` class methods:
+
+	DestinationClass* destination = [[DestinationClass alloc] init];
+	[destination mixinFrom:[SourceClass class]];	// Or mixinFrom:followInheritance:
+	[(id)destination whatsMyName];	// Prints "My class name is: DestinationClass"
+
+Be aware that this is just syntactic sugar - even though the method is called on an object instance, it still extends the class itself. I actually prefer using the `Mixin` class, since it is more clear by reading the code that you're extending the class functionality, not just the functionality of a single object.
+
 Why?
 ----
 

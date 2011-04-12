@@ -19,22 +19,7 @@
 		E772037513530B0600C1B257 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77203221352FCE000C1B257 /* Cocoa.framework */; };
 		E772037C13530B0B00C1B257 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
 		E7720380135334B300C1B257 /* ChildSourceClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E772037F135334B300C1B257 /* ChildSourceClass.m */; };
-		E7DE3B4813165EA600C96724 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DE3B4713165EA600C96724 /* Foundation.framework */; };
-		E7DE3B4B13165EA600C96724 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B4A13165EA600C96724 /* main.m */; };
-		E7DE3B5613165FB500C96724 /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E7DE3B4113165EA600C96724 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E77203211352FCE000C1B257 /* ObjectiveMixinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveMixinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,11 +43,7 @@
 		E772037D1353198600C1B257 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E772037E135334B300C1B257 /* ChildSourceClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSourceClass.h; sourceTree = "<group>"; };
 		E772037F135334B300C1B257 /* ChildSourceClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSourceClass.m; sourceTree = "<group>"; };
-		E7DE3B4313165EA600C96724 /* ObjectiveMixin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveMixin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DE3B4713165EA600C96724 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E7DE3B4A13165EA600C96724 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E7DE3B4D13165EA600C96724 /* ObjectiveMixin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixin-Prefix.pch"; sourceTree = "<group>"; };
-		E7DE3B4E13165EA600C96724 /* ObjectiveMixin.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ObjectiveMixin.1; sourceTree = "<group>"; };
 		E7DE3B5413165FB500C96724 /* Mixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixin.h; sourceTree = "<group>"; };
 		E7DE3B5513165FB500C96724 /* Mixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,14 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E772037513530B0600C1B257 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7DE3B4013165EA600C96724 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7DE3B4813165EA600C96724 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +160,6 @@
 		E7DE3B4413165EA600C96724 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E7DE3B4313165EA600C96724 /* ObjectiveMixin */,
 				E77203211352FCE000C1B257 /* ObjectiveMixinTests.octest */,
 				E772034A13530A6700C1B257 /* libObjectiveMixinCocoaTouch.a */,
 				E772037413530B0600C1B257 /* ObjectiveMixinCocoa.dylib */,
@@ -208,21 +180,10 @@
 		E7DE3B4913165EA600C96724 /* ObjectiveMixin */ = {
 			isa = PBXGroup;
 			children = (
-				E7DE3B4C13165EA600C96724 /* Supporting Files */,
-				E7DE3B4A13165EA600C96724 /* main.m */,
 				E7DE3B5413165FB500C96724 /* Mixin.h */,
 				E7DE3B5513165FB500C96724 /* Mixin.m */,
 			);
 			path = ObjectiveMixin;
-			sourceTree = "<group>";
-		};
-		E7DE3B4C13165EA600C96724 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E7DE3B4E13165EA600C96724 /* ObjectiveMixin.1 */,
-				E7DE3B4D13165EA600C96724 /* ObjectiveMixin-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,23 +258,6 @@
 			productReference = E772037413530B0600C1B257 /* ObjectiveMixinCocoa.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		E7DE3B4213165EA600C96724 /* ObjectiveMixin */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E7DE3B5113165EA600C96724 /* Build configuration list for PBXNativeTarget "ObjectiveMixin" */;
-			buildPhases = (
-				E7DE3B3F13165EA600C96724 /* Sources */,
-				E7DE3B4013165EA600C96724 /* Frameworks */,
-				E7DE3B4113165EA600C96724 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ObjectiveMixin;
-			productName = ObjectiveMixin;
-			productReference = E7DE3B4313165EA600C96724 /* ObjectiveMixin */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -331,7 +275,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E7DE3B4213165EA600C96724 /* ObjectiveMixin */,
 				E77203201352FCE000C1B257 /* ObjectiveMixinTests */,
 				E772034913530A6700C1B257 /* ObjectiveMixinCocoaTouch */,
 				E772037313530B0600C1B257 /* ObjectiveMixinCocoa */,
@@ -393,15 +336,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E772037C13530B0B00C1B257 /* Mixin.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7DE3B3F13165EA600C96724 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7DE3B4B13165EA600C96724 /* main.m in Sources */,
-				E7DE3B5613165FB500C96724 /* Mixin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,32 +489,6 @@
 			};
 			name = Release;
 		};
-		E7DE3B5213165EA600C96724 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjectiveMixin/ObjectiveMixin-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E7DE3B5313165EA600C96724 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjectiveMixin/ObjectiveMixin-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -616,15 +524,6 @@
 			buildConfigurations = (
 				E7DE3B4F13165EA600C96724 /* Debug */,
 				E7DE3B5013165EA600C96724 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E7DE3B5113165EA600C96724 /* Build configuration list for PBXNativeTarget "ObjectiveMixin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E7DE3B5213165EA600C96724 /* Debug */,
-				E7DE3B5313165EA600C96724 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

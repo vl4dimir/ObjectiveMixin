@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CandyFactory.h"
+#import "MountainBike.h"
 
 int main (int argc, const char * argv[]) {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -22,6 +23,20 @@ int main (int argc, const char * argv[]) {
 		NSLog(@"%@", [candyFactory2 createCandy]);
 		[CandyFactory destroyInstance];
 	}
+	
+	// Test the serializable mixin. We create a MountainBike instance, serialize it
+	// to disk, and then populate another instance by deserializing from that file.
+	MountainBike* bike = [[[MountainBike alloc] init] autorelease];
+	bike.make = @"Scott";
+	bike.model = @"Scale 30";
+	
+	NSString* path = @"bike.txt";
+	[bike serializeToFile:path];
+	
+	MountainBike* anotherBike = [[[MountainBike alloc] init] autorelease];
+	[anotherBike deserializeFromFile:path];
+	NSLog(@"Original bike:     %@ %@", bike.make, bike.model);
+	NSLog(@"Deserialized bike: %@ %@", anotherBike.make, anotherBike.model);
 	
 	[pool drain];
 	return 0;

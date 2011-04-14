@@ -24,6 +24,8 @@
 		E77355E1135721C90062EB8A /* CandyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E77355E0135721C90062EB8A /* CandyFactory.m */; };
 		E77355E4135722830062EB8A /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = E77355E3135722830062EB8A /* Singleton.m */; };
 		E77355ED135723850062EB8A /* Mixin.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE3B5513165FB500C96724 /* Mixin.m */; };
+		E77355F1135724660062EB8A /* Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = E77355F0135724660062EB8A /* Serializable.m */; };
+		E77355F4135727950062EB8A /* MountainBike.m in Sources */ = {isa = PBXBuildFile; fileRef = E77355F3135727940062EB8A /* MountainBike.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +70,10 @@
 		E77355E0135721C90062EB8A /* CandyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyFactory.m; sourceTree = "<group>"; };
 		E77355E2135722830062EB8A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		E77355E3135722830062EB8A /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		E77355EF135724660062EB8A /* Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
+		E77355F0135724660062EB8A /* Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializable.m; sourceTree = "<group>"; };
+		E77355F2135727940062EB8A /* MountainBike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MountainBike.h; sourceTree = "<group>"; };
+		E77355F3135727940062EB8A /* MountainBike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MountainBike.m; sourceTree = "<group>"; };
 		E7DE3B4713165EA600C96724 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E7DE3B5413165FB500C96724 /* Mixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixin.h; sourceTree = "<group>"; };
 		E7DE3B5513165FB500C96724 /* Mixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixin.m; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 			children = (
 				E77355E2135722830062EB8A /* Singleton.h */,
 				E77355E3135722830062EB8A /* Singleton.m */,
+				E77355EF135724660062EB8A /* Serializable.h */,
+				E77355F0135724660062EB8A /* Serializable.m */,
 			);
 			name = "Example Mixin Classes";
 			path = Examples;
@@ -194,6 +202,8 @@
 				E77355D7135721700062EB8A /* main.m */,
 				E77355DF135721C90062EB8A /* CandyFactory.h */,
 				E77355E0135721C90062EB8A /* CandyFactory.m */,
+				E77355F2135727940062EB8A /* MountainBike.h */,
+				E77355F3135727940062EB8A /* MountainBike.m */,
 			);
 			path = ObjectiveMixinExamples;
 			sourceTree = "<group>";
@@ -431,6 +441,8 @@
 				E77355E1135721C90062EB8A /* CandyFactory.m in Sources */,
 				E77355E4135722830062EB8A /* Singleton.m in Sources */,
 				E77355ED135723850062EB8A /* Mixin.m in Sources */,
+				E77355F1135724660062EB8A /* Serializable.m in Sources */,
+				E77355F4135727950062EB8A /* MountainBike.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

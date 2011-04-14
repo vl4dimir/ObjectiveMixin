@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SourceClass : NSObject {
-    NSString* jazzatazz;
-}
+@interface SourceClass : NSObject {}
 
 @property (nonatomic, retain) NSString* jazzatazz;
 

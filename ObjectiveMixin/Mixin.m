@@ -14,16 +14,19 @@
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass
 {
-	// Mixin all methods from the source class (ignoring superclasses)
+	// Mixin all instance methods from the source class (ignoring superclasses)
 	unsigned int methodCount = 0;
-	Method* methodList = class_copyMethodList(sourceClass, &methodCount);
-	
+	Method* instanceMethods = class_copyMethodList(sourceClass, &methodCount);
 	for (int i = 0; i < methodCount; i++) {
-		Method m = methodList[i];
-		SEL name = method_getName(m);
-		IMP imp = method_getImplementation(m);
-		const char* types = method_getTypeEncoding(m);
-		class_replaceMethod(destinationClass, name, imp, types);
+		Method m = instanceMethods[i];
+		class_replaceMethod(destinationClass, method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
+	}
+	
+	// Mixin all class methods from the source class (ignoring cuperclasses)
+	Method* classMethods = class_copyMethodList(object_getClass(sourceClass), &methodCount);
+	for (int i = 0; i < methodCount; i++) {
+		Method m = classMethods[i];
+		class_replaceMethod(object_getClass(destinationClass), method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
 	}
 }
 

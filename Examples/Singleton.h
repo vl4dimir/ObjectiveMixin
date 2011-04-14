@@ -10,7 +10,8 @@
 
 
 @interface Singleton : NSObject {}
-
++ (id) instance;
++ (void) destroyInstance;
 @end
 
 

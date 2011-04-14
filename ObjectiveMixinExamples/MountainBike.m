@@ -14,7 +14,8 @@
 @synthesize model;
 
 + (void) initialize {
-	[Mixin from:[Serializable class] into:self];
+	if ([self class] == [MountainBike class])
+		[Mixin from:[Serializable class] into:self];
 }
 
 - (NSString*) serializedRepresentation {

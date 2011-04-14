@@ -12,8 +12,8 @@
 @implementation CandyFactory
 
 + (void) initialize {
-	// Get singleton functionality for free
-	[Mixin from:[Singleton class] into:self];
+	if ([self class] == [CandyFactory class])
+		[Mixin from:[Singleton class] into:self];
 }
 
 - (NSString*) createCandy {

@@ -51,7 +51,7 @@ Note that in order to avoid "object may not respond to selector" compiler warnin
 
 You can also use `[Mixin from:[Ninja class] into:[Turtle class] followInheritance:YES];` to mix in all `Ninja`'s inherited methods, up to the common ancestor of `Ninja` and `Turtle`. In other words, if we have the following inheritance trees: `Ninja -> Human -> NSObject` and `Turtle -> NSObject`, then the `from:into:followInheritance:` method will mix in methods from both `Ninja` and `Human` into `Turtle`, but not from `NSObject` since it's their common ancestor (they already inherit its methods).
 
-There's also a convenient category defined in top of `NSObject` (it's defined in `Mixin.h`), so you can use it instead of calling `Mixin` class methods:
+There's also a convenient category defined on top of `NSObject` (it's defined in `Mixin.h` as well), so you can use it instead of calling `Mixin` class methods:
 
 	Turtle* turtle = [[turtle alloc] init];
 	[turtle mixinFrom:[Ninja class]];	// Or mixinFrom:followInheritance:

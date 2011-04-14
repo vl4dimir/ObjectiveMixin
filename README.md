@@ -5,59 +5,79 @@ ObjectiveMixin allows Objective-C classes to receive additional functionality at
 
 This works by taking advantage of the Objective-C runtime environment and its ability to add methods to an existing class while the program is executing. By specifying source and destination classes when performing a "mixing" operation, the destination class gains all of the source class's method implementations.
 
-There's a small limitation due to the fact that instance variables cannot be added after the class pair is created (see the [Apple docs][2] for the `class_addIvar` function). Thus, the source class's method implementations must not contain direct references to instance variables. This can be easily circumvented by accessing ivars through properties instead of accessing them directly (i.e. `self.someValue` instead of `someValue`). The runtime will then synthesize the property in the destination instance (instance, not class!) and will work normally.
+There's a small limitation due to the fact that instance variables cannot be added after the class pair is created (see [Apple docs][2] for `class_addIvar`). Thus, the source class's method implementations must not contain direct references to instance variables. This can be easily circumvented by accessing ivars through properties instead of accessing them directly (i.e. `self.someValue` instead of `someValue`). The runtime will then synthesize the property in the destination instance (instance, not class!) and will work normally.
 
-Example
--------
+Usage
+-----
+
+1. Copy `Mixin.h` and `Mixin.m` into your project.
+2. `#import "Mixin.h"`
+3. Have fun.
+
+Basic Example
+-------------
 
 Say you have a source class that looks like this:
 
-	@interface SourceClass : NSObject {
-		NSString* myClassName;
+	@interface Ninja : NSObject {
+		NSString* clanName;
 	}
 	
-	@property (nonatomic, retain) NSString* myClassName;
+	@property (nonatomic, retain) NSString* clanName;
 	
-	- (void) whatsMyName;
+	- (void) doNinjaStuff;
 	
 	@end
 	
-	@implementation SourceClass
-	@synthesize myClassName;
+	@implementation Ninja
+	@synthesize clanName;
 	
-	- (void) whatsMyName {
-		self.myClassName = [[self class] description];
-		NSLog(@"My class name is: %@", myClassName);
+	- (void) doNinjaStuff {
+		self.clanName = @"Iga";
+		NSLog(@"I'm a %@ and my clan name is %@", [[self class] description], self.clanName);
 	}
 	
 	@end
 
-If you then use the `Mixin` class to extend `DestinationClass` with `SourceClass`, you get this:
+If you then use `Mixin` to extend `Turtle` with `Ninja`, you get this:
 
-	DestinationClass* destination = [[DestinationClass alloc] init];
-	[Mixin from:[SourceClass class] into:[DestinationClass class]];
-	[(id)destination whatsMyName];	// Prints "My class name is: DestinationClass"
+	Turtle* turtle = [[Turtle alloc] init];
+	[Mixin from:[Ninja class] into:[Turtle class]];
+	[(id)turtle doNinjaStuff];	// Prints "I'm a Turtle and my clan name is Iga"
 
-Even though the `myClassName` instance variable does not exist in `DestinationClass` definition, it is synthesized at runtime in the `destination` object, and everything works fine.
+Even though the `clanName` instance variable does not exist in `Turtle`'s definition, it is synthesized at runtime in the `turtle` object, and everything works fine.
 
-Note that in order to avoid "object may not respond to selector" compiler warnings you have to cast the `destination` variable to the `id` type (or alternatively, to `SourceClass`, but `id` is cleaner in my opinion).
+Note that in order to avoid "object may not respond to selector" compiler warnings you have to cast the `turtle` variable to the `id` type (or alternatively, to `Ninja`, but `id` is cleaner in my opinion). Read the next section to see how to avoid this.
 
-You can also use `[Mixin from:[SourceClass class] into:[DestinationClass class] followInheritance:YES];` to mix in all `SourceClass`'s inherited methods, up to the common ancestor of `SourceClass` and `DestinationClass`. In other words, if we have the following inheritance trees: `SourceClass -> BaseClass -> NSObject` and `DestinationClass -> NSObject`, then the `from:into:followInheritance:` method will mix in methods from both `SourceClass` and `BaseClass` into `DestinationClass`, but not from `NSObject` since it's their common ancestor (they already inherit its methods).
+You can also use `[Mixin from:[Ninja class] into:[Turtle class] followInheritance:YES];` to mix in all `Ninja`'s inherited methods, up to the common ancestor of `Ninja` and `Turtle`. In other words, if we have the following inheritance trees: `Ninja -> Human -> NSObject` and `Turtle -> NSObject`, then the `from:into:followInheritance:` method will mix in methods from both `Ninja` and `Human` into `Turtle`, but not from `NSObject` since it's their common ancestor (they already inherit its methods).
 
 There's also a convenient category defined in top of `NSObject` (it's defined in `Mixin.h`), so you can use it instead of calling `Mixin` class methods:
 
-	DestinationClass* destination = [[DestinationClass alloc] init];
-	[destination mixinFrom:[SourceClass class]];	// Or mixinFrom:followInheritance:
-	[(id)destination whatsMyName];	// Prints "My class name is: DestinationClass"
+	Turtle* turtle = [[turtle alloc] init];
+	[turtle mixinFrom:[Ninja class]];	// Or mixinFrom:followInheritance:
+	[(id)turtle doNinjaStuff];	// Prints "I'm a Turtle and my clan name is Iga"
 
 Be aware that this is just syntactic sugar - even though the method is called on an object instance, it still extends the class itself. I actually prefer using the `Mixin` class, since it is more clear by reading the code that you're extending the class functionality, not just the functionality of a single object.
+
+More Subtle Example
+-------------------
+
+Take a look at `Examples/Serializable.h`. There's a `Serializable` class there which you mix into your class at runtime, and there's a `SerializableMixin` protocol which your class should implement.
+
+Methods that are marked as `@required` have to be implemented by your class, and methods that are marked as `@optional` will be mixed in from the `Serializable` class at runtime. The optional methods are defined in the protocol in order to avoid "object may not respond to selector" compiler warnings.
+
+Now take a look at `ObjectiveMixinExamples/MountainBike.h`. This class complies with the `SerializableMixin` protocol, by implementing the two required methods from that protocol. In `ObjectiveMixinExamples/MountainBike.m` you can see that the `Serializable` class is mixed in in the `initialize` class method, which is invoked by the Obj-C runtime only once at class creation time. This way you're free from worrying about whether you already mixed in a certain class - this code is guaranteed to run only once.
+
+(This approach was suggested to me by Benedict Cohen (@benedictC), thanks man!)
+
+You should also check out the `Singleton` example in `Examples/Singleton.h`, I use that one a lot.
 
 Why?
 ----
 
-This is just another mechanism you can use when designing your class hierarchy, in addition to the usual Objective-C design patterns. For example, you can have an algorithm that is used by multiple classes and you don't want to "pollute" their ancestor by extending it with a category. Plus, this is a runtime feature so it opens a lot of doors for experimentation.
+This is just another mechanism you can use when designing your class hierarchy, in addition to the usual Objective-C design patterns. For example, you can have an algorithm that is used by multiple classes and you don't want to "pollute" their ancestor by extending it with a category. Plus, this is a runtime feature so it opens a lot of doors for experimentation. Feel free to read up on some Ruby mixin usage examples and implement them in Obj-C.
 
-I can't think of anything else right now, but this README is already longer than the actual code. :P
+Fun!
 
 [1]: http://www.ruby-doc.org/docs/ProgrammingRuby/html/tut_modules.html
 [2]: https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html

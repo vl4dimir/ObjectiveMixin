@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D7CA7DA15125C990014D312 /* Mixin.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DE3B5413165FB500C96724 /* Mixin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E77203231352FCE000C1B257 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77203221352FCE000C1B257 /* Cocoa.framework */; };
 		E772032D1352FCE000C1B257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E772032B1352FCE000C1B257 /* InfoPlist.strings */; };
 		E77203301352FCE000C1B257 /* ObjectiveMixinTests.h in Resources */ = {isa = PBXBuildFile; fileRef = E772032F1352FCE000C1B257 /* ObjectiveMixinTests.h */; };
@@ -269,6 +270,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D7CA7DA15125C990014D312 /* Mixin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,14 +508,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				DSTROOT = /tmp/ObjectiveMixinCocoaTouch.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjectiveMixinCocoaTouch/ObjectiveMixinCocoaTouch-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/ObjectiveMixin;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -523,13 +524,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				DSTROOT = /tmp/ObjectiveMixinCocoaTouch.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjectiveMixinCocoaTouch/ObjectiveMixinCocoaTouch-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/ObjectiveMixin;
 				SDKROOT = iphoneos;
 			};
 			name = Release;

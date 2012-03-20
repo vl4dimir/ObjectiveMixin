@@ -60,7 +60,7 @@
 		E772034E13530A6700C1B257 /* ObjectiveMixinCocoaTouch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixinCocoaTouch-Prefix.pch"; sourceTree = "<group>"; };
 		E772037413530B0600C1B257 /* ObjectiveMixinCocoa.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = ObjectiveMixinCocoa.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E772037813530B0600C1B257 /* ObjectiveMixinCocoa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveMixinCocoa-Prefix.pch"; sourceTree = "<group>"; };
-		E772037D1353198600C1B257 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		E772037D1353198600C1B257 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; wrapsLines = 1; };
 		E772037E135334B300C1B257 /* ChildSourceClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildSourceClass.h; sourceTree = "<group>"; };
 		E772037F135334B300C1B257 /* ChildSourceClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildSourceClass.m; sourceTree = "<group>"; };
 		E77355D3135721700062EB8A /* ObjectiveMixinExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveMixinExamples; sourceTree = BUILT_PRODUCTS_DIR; };

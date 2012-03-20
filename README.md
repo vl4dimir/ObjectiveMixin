@@ -123,7 +123,7 @@ You can then instantiate objects using the -allocWithSuperclass: method.  For ex
     
 Because the subclass is a 'real' subclass, even though it's created at runtime, it is possible (as in the above example) to declare properties and even ivars in the mixin class.
     
-If you name your class with a "Mixin" suffix, and your protocol without one (as in this example), Objective Mixin will ensure that the dynamicly created class is correctly marked as conforming to the protocol (so, in thie example, objects will respond to [button conformsToProtocol:@protocol(THDrawRectWithBlocks)] with YES).
+If you name your class with a "Mixin" suffix, and your protocol without one (as in this example), Objective Mixin will ensure that the dynamically created class is correctly marked as conforming to the protocol (so, in thie example, objects will respond to [button conformsToProtocol:@protocol(THDrawRectWithBlocks)] with YES).
 
 Note that calling 'super' in your mixin code will, at runtime, call the method of the _dynamic_ superclass (so, in this case, it would be _UIButton's_ methods that would be called, _not UIView's_).
 

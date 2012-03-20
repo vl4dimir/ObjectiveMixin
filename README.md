@@ -96,7 +96,7 @@ For example, you might declare a UIView mixin that stores a block that will be c
     @property (nonatomic, copy) void(^drawRectBlock)(UIView *self, CGRect rect);
     @end
 
-    @interface THDrawRectWithBlocksMixin : UIView <ArvoDrawRectWithBlocks>
+    @interface THDrawRectWithBlocksMixin : UIView <THDrawRectWithBlocks>
     @end
 
 Implemented like this:
@@ -114,7 +114,7 @@ Implemented like this:
 
 You can then instantiate objects using the -allocWithSuperclass: method.  For example, this will create a UIButton that has the methods from your THDrawRectWithBlocks class:
 
-    UIButton<THDrawRectWithBlocks> *button = [(UIButton<THDrawRectWithBlocks> *)[ArvoDrawRectWithBlocksMixin allocWithSuperclass:[UIButton class]] initWithFrame:self.view.bounds];
+    UIButton<THDrawRectWithBlocks> *button = [(UIButton<THDrawRectWithBlocks> *)[THDrawRectWithBlocksMixin allocWithSuperclass:[UIButton class]] initWithFrame:self.view.bounds];
     
     button.drawRectBlock = ^(UIView *view, CGRect rect) {
         [[UIColor redColor] set];

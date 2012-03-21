@@ -79,5 +79,63 @@ This is just another mechanism you can use when designing your class hierarchy, 
 
 Fun!
 
+
+
+
+Update by Jamie Montgomerie
+---------------------------
+
+Dynamic Subclassing
+-------------------
+
+It's now also possible to dynamically create a subclass at runtime.  In some ways, this is akin to being able to create concrete methods in protocols.
+
+For example, you might declare a UIView mixin that stores a block that will be called in place of -drawRect: like this:
+
+    @protocol THDrawRectWithBlocks <NSObject>
+    @property (nonatomic, copy) void(^drawRectBlock)(UIView *self, CGRect rect);
+    @end
+
+    @interface THDrawRectWithBlocksMixin : UIView <THDrawRectWithBlocks>
+    @end
+
+Implemented like this:
+
+    @implementation THDrawRectWithBlocksMixin
+
+    @synthesize drawRectBlock;
+
+    - (void)drawRect:(CGRect)rect
+    {
+        self.drawRectBlock(self, rect);
+    }
+
+    @end
+
+You can then instantiate objects using the -allocWithSuperclass: method.  For example, this will create a UIButton that has the methods from your THDrawRectWithBlocks class:
+
+    UIButton<THDrawRectWithBlocks> *button = [(UIButton<THDrawRectWithBlocks> *)[THDrawRectWithBlocksMixin allocWithSuperclass:[UIButton class]] initWithFrame:self.view.bounds];
+    
+    button.drawRectBlock = ^(UIView *view, CGRect rect) {
+        [[UIColor redColor] set];
+        UIRectFill(rect);
+    };
+    
+Because the subclass is a 'real' subclass, even though it's created at runtime, it is possible (as in the above example) to declare properties and even ivars in the mixin class.
+    
+If you name your class with a "Mixin" suffix, and your protocol without one (as in this example), Objective Mixin will ensure that the dynamically created class is correctly marked as conforming to the protocol (so, in thie example, objects will respond to [button conformsToProtocol:@protocol(THDrawRectWithBlocks)] with YES).
+
+Note that calling 'super' in your mixin code will, at runtime, call the method of the _dynamic_ superclass (so, in this case, it would be _UIButton's_ methods that would be called, _not UIView's_).
+
+
+More than one dynamic superclass
+--------------------------------
+
+The convenience -allocWithSuperclass: method isn't powerful enough to allow more than one dynamic superclass, but you can use the more general -classWithSuperclass: method to 'chain' mixins, like this:
+
+    [[MySecondUIViewMixin classWithSuperclass:[MyFirstUIViewMixin classWithSuperclass:UIView] alloc] init];
+
+
+
 [1]: http://www.ruby-doc.org/docs/ProgrammingRuby/html/tut_modules.html
 [2]: https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html

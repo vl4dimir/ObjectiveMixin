@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Mixin : NSObject {
-	
-}
+@interface Mixin : NSObject
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass;
 + (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance;
@@ -24,5 +22,9 @@
 
 - (void) mixinFrom:(Class)sourceClass;
 - (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance;
+
+
++ (id) allocWithSuperclass:(Class)superClass;
++ (Class) classWithSuperclass:(Class)superClass;
 
 @end

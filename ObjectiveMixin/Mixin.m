@@ -62,4 +62,43 @@
 	[Mixin from:sourceClass into:[self class] followInheritance:followInheritance];
 }
 
+
++ (Class) classWithSuperclass:(Class)superClass 
+{
+    Protocol *protocol = nil;
+    
+    NSString *myClassName = NSStringFromClass(self);
+    if([myClassName hasSuffix:@"Mixin"]) {
+        protocol = NSProtocolFromString([myClassName substringToIndex:myClassName.length - 5]);
+    }
+    
+    Class fromClass = self;
+    NSString *dynamicClassName = [NSString stringWithFormat:@"%@_WithSuperclass_%@", NSStringFromClass(fromClass), NSStringFromClass(superClass)];
+    if(protocol) {
+        dynamicClassName = [NSString stringWithFormat:@"%@_ConformingToProtocol_%@", dynamicClassName, NSStringFromProtocol(protocol)];
+    }
+    
+    Class dynamicClass = NSClassFromString(dynamicClassName);
+    
+    if(!dynamicClass) {
+        dynamicClass = objc_allocateClassPair(fromClass, [dynamicClassName UTF8String], 0);
+        
+        [Mixin from:fromClass into:dynamicClass];
+        
+        if(protocol) {
+            class_addProtocol(dynamicClass, protocol);
+        }
+        
+        objc_registerClassPair(dynamicClass);
+    }
+    
+    return dynamicClass;
+}
+
+
++ (id) allocWithSuperclass:(Class)superClass
+{
+    return [[self classWithSuperclass:superClass] alloc];
+}
+
 @end

@@ -514,7 +514,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/ObjectiveMixin;
+				PUBLIC_HEADERS_FOLDER_PATH = include/ObjectiveMixin;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -529,7 +529,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/ObjectiveMixin;
+				PUBLIC_HEADERS_FOLDER_PATH = include/ObjectiveMixin;
 				SDKROOT = iphoneos;
 			};
 			name = Release;

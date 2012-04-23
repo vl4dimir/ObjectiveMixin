@@ -22,11 +22,19 @@
 		class_replaceMethod(destinationClass, method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
 	}
 	
+	if (instanceMethods) {
+		free(instanceMethods);
+	}
+	
 	// Mixin all class methods from the source class (ignoring cuperclasses)
 	Method* classMethods = class_copyMethodList(object_getClass(sourceClass), &methodCount);
 	for (int i = 0; i < methodCount; i++) {
 		Method m = classMethods[i];
 		class_replaceMethod(object_getClass(destinationClass), method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
+	}
+	
+	if (classMethods) {
+		free(classMethods);
 	}
 }
 

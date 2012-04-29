@@ -12,8 +12,7 @@
 
 @implementation Mixin
 
-+ (void) mixinFrom:(id)source into:(id)destination force:(BOOL)force
-{
++ (void) mixinFrom:(id)source into:(id)destination force:(BOOL)force {
 	unsigned int methodCount = 0;
 	Method* methods = class_copyMethodList(source, &methodCount);
 	for (int i = 0; i < methodCount; i++) {
@@ -36,8 +35,7 @@
 	}
 }
 
-+ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance force:(BOOL)force
-{
++ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance force:(BOOL)force {
 	if (followInheritance) {
 		// Mixin from all ancestor classes recursively, up to the common ancestor
 		Class sourceParent = class_getSuperclass(sourceClass);
@@ -60,8 +58,7 @@
 	[self mixinFrom:object_getClass(sourceClass) into:object_getClass(destinationClass) force:force];
 }
 
-+ (void) from:(Class)sourceClass into:(Class)destinationClass
-{
++ (void) from:(Class)sourceClass into:(Class)destinationClass {
 	[self from:sourceClass into:destinationClass followInheritance:NO force:NO];
 }
 
@@ -86,8 +83,7 @@
 	[Mixin from:sourceClass into:self followInheritance:followInheritance force:force];
 }
 
-+ (Class) classWithSuperclass:(Class)superClass 
-{
++ (Class) classWithSuperclass:(Class)superClass {
     Protocol *protocol = nil;
     
     NSString *myClassName = NSStringFromClass(self);
@@ -119,8 +115,7 @@
 }
 
 
-+ (id) allocWithSuperclass:(Class)superClass
-{
++ (id) allocWithSuperclass:(Class)superClass {
     return [[self classWithSuperclass:superClass] alloc];
 }
 

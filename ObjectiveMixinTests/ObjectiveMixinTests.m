@@ -14,24 +14,21 @@
 
 @implementation ObjectiveMixinTests
 
-- (void)setUp
-{
+- (void)setUp {
 	[super setUp];
 	
 	// Set-up code here.
 	NSLog(@"====");
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
 	// Tear-down code here.
 	NSLog(@"====");
 	
 	[super tearDown];
 }
 
-- (void)testMethods
-{
+- (void)testMethods {
 	DestinationClass* dest = [[[DestinationClass alloc] init] autorelease];
 	
 	[Mixin from:[SourceClass class] into:[DestinationClass class]];
@@ -43,7 +40,7 @@
 - (void) testInheritedMethods {
 	DestinationClass* dest = [[[DestinationClass alloc] init] autorelease];
 	
-	[Mixin from:[ChildSourceClass class] into:[DestinationClass class] followInheritance:YES];
+	[Mixin from:[ChildSourceClass class] into:[DestinationClass class] followInheritance:YES force:YES];
 	[(id)dest childMethodCallingParentMethod];
 	[(id)dest helloWorld];
 }

@@ -12,14 +12,23 @@
 
 @implementation Mixin
 
-+ (void) mixinFrom:(id)source into:(id)destination
++ (void) mixinFrom:(id)source into:(id)destination force:(BOOL)force
 {
 	unsigned int methodCount = 0;
 	Method* methods = class_copyMethodList(source, &methodCount);
 	for (int i = 0; i < methodCount; i++) {
 		Method m = methods[i];
-
-		class_replaceMethod(destination, method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
+		
+		SEL name = method_getName(m);
+		IMP imp = method_getImplementation(m);
+		const char* types = method_getTypeEncoding(m);
+		
+		if (force) {
+			class_replaceMethod(destination, name, imp, types);
+		} else {
+			// Will fail if method already exists
+			class_addMethod(destination, name, imp, types);
+		}
 	}
 	
 	if (methods) {
@@ -27,7 +36,7 @@
 	}
 }
 
-+ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance
++ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance force:(BOOL)force
 {
 	if (followInheritance) {
 		// Mixin from all ancestor classes recursively, up to the common ancestor
@@ -39,21 +48,21 @@
 			
 			// Only mixin from sourceParent if it's not an ancestor of destinationClass
 			if (destinationParent == nil) {
-				[self from:sourceParent into:destinationClass followInheritance:YES];
+				[self from:sourceParent into:destinationClass followInheritance:YES force:force];
 			}
 		}
 	}
 	
 	// Mixin instance methods
-	[self mixinFrom:sourceClass into:destinationClass];
+	[self mixinFrom:sourceClass into:destinationClass force:force];
 	
 	// Mixin class methods
-	[self mixinFrom:object_getClass(sourceClass) into:object_getClass(destinationClass)];
+	[self mixinFrom:object_getClass(sourceClass) into:object_getClass(destinationClass) force:force];
 }
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass
 {
-	[self from:sourceClass into:destinationClass followInheritance:NO];
+	[self from:sourceClass into:destinationClass followInheritance:NO force:NO];
 }
 
 @end
@@ -65,16 +74,16 @@
 	[Mixin from:sourceClass into:[self class]];
 }
 
-- (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance {
-	[Mixin from:sourceClass into:[self class] followInheritance:followInheritance];
+- (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance force:(BOOL)force {
+	[Mixin from:sourceClass into:[self class] followInheritance:followInheritance force:force];
 }
 
 + (void) mixinFrom:(Class)sourceClass {
 	[Mixin from:sourceClass into:self];
 }
 
-+ (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance {
-	[Mixin from:sourceClass into:self followInheritance:followInheritance];
++ (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance force:(BOOL)force {
+	[Mixin from:sourceClass into:self followInheritance:followInheritance force:force];
 }
 
 + (Class) classWithSuperclass:(Class)superClass 

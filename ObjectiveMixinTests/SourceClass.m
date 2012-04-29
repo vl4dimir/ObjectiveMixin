@@ -25,6 +25,12 @@
 	NSLog(@"This method uses an instance variable which has the following value: %@", jazzatazz);
 }
 
+- (int) methodToBeOverridden
+{
+	NSLog(@"This method is the source class version");
+	return 1;
+}
+
 - (void) dealloc {
     self.jazzatazz = nil;
     [super dealloc];

@@ -16,5 +16,6 @@
 - (void) helloWorld;
 - (void) methodWithAnArgument:(NSObject*)arg;
 - (void) methodUsingAnInstanceVariable;
+- (int) methodToBeOverridden;
 
 @end

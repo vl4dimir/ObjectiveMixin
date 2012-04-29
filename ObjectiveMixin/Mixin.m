@@ -12,30 +12,28 @@
 
 @implementation Mixin
 
++ (void) mixinFrom:(id)source into:(id)destination
+{
+	unsigned int methodCount = 0;
+	Method* methods = class_copyMethodList(source, &methodCount);
+	for (int i = 0; i < methodCount; i++) {
+		Method m = methods[i];
+
+		class_replaceMethod(destination, method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
+	}
+	
+	if (methods) {
+		free(methods);
+	}
+}
+
 + (void) from:(Class)sourceClass into:(Class)destinationClass
 {
-	// Mixin all instance methods from the source class (ignoring superclasses)
-	unsigned int methodCount = 0;
-	Method* instanceMethods = class_copyMethodList(sourceClass, &methodCount);
-	for (int i = 0; i < methodCount; i++) {
-		Method m = instanceMethods[i];
-		class_replaceMethod(destinationClass, method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
-	}
+	// Mixin instance methods
+	[self mixinFrom:sourceClass into:destinationClass];
 	
-	if (instanceMethods) {
-		free(instanceMethods);
-	}
-	
-	// Mixin all class methods from the source class (ignoring cuperclasses)
-	Method* classMethods = class_copyMethodList(object_getClass(sourceClass), &methodCount);
-	for (int i = 0; i < methodCount; i++) {
-		Method m = classMethods[i];
-		class_replaceMethod(object_getClass(destinationClass), method_getName(m), method_getImplementation(m), method_getTypeEncoding(m));
-	}
-	
-	if (classMethods) {
-		free(classMethods);
-	}
+	// Mixin class methods
+	[self mixinFrom:object_getClass(sourceClass) into:object_getClass(destinationClass)];
 }
 
 + (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance {

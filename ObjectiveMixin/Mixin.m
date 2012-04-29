@@ -69,6 +69,13 @@
 	[Mixin from:sourceClass into:[self class] followInheritance:followInheritance];
 }
 
++ (void) mixinFrom:(Class)sourceClass {
+	[Mixin from:sourceClass into:self];
+}
+
++ (void) mixinFrom:(Class)sourceClass followInheritance:(BOOL)followInheritance {
+	[Mixin from:sourceClass into:self followInheritance:followInheritance];
+}
 
 + (Class) classWithSuperclass:(Class)superClass 
 {

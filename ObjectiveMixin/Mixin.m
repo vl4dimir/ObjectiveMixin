@@ -27,16 +27,8 @@
 	}
 }
 
-+ (void) from:(Class)sourceClass into:(Class)destinationClass
++ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance
 {
-	// Mixin instance methods
-	[self mixinFrom:sourceClass into:destinationClass];
-	
-	// Mixin class methods
-	[self mixinFrom:object_getClass(sourceClass) into:object_getClass(destinationClass)];
-}
-
-+ (void) from:(Class)sourceClass into:(Class)destinationClass followInheritance:(BOOL)followInheritance {
 	if (followInheritance) {
 		// Mixin from all ancestor classes recursively, up to the common ancestor
 		Class sourceParent = class_getSuperclass(sourceClass);
@@ -52,7 +44,16 @@
 		}
 	}
 	
-	[self from:sourceClass into:destinationClass];
+	// Mixin instance methods
+	[self mixinFrom:sourceClass into:destinationClass];
+	
+	// Mixin class methods
+	[self mixinFrom:object_getClass(sourceClass) into:object_getClass(destinationClass)];
+}
+
++ (void) from:(Class)sourceClass into:(Class)destinationClass
+{
+	[self from:sourceClass into:destinationClass followInheritance:NO];
 }
 
 @end

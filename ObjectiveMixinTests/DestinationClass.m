@@ -11,4 +11,10 @@
 
 @implementation DestinationClass
 
+- (int) methodToBeOverridden
+{
+	NSLog(@"This method is the destination class version");
+	return 2;
+}
+
 @end

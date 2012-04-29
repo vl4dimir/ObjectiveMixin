@@ -59,6 +59,8 @@ There's also a convenient category defined on top of `NSObject` (it's defined in
 
 Be aware that this is just syntactic sugar - even though the method is called on an object instance, it still extends the class itself. I actually prefer using the `Mixin` class, since it is more clear by reading the code that you're extending the class functionality, not just the functionality of a single object.
 
+Finally, if the class you want to mix into already has some of the mixin methods implemented, you can keep their original implementations by passing `NO` for force in `from:to:followInheritance:force`. Otherwise, all methods will be overriden by Mixin ones.
+
 More Subtle Example
 -------------------
 

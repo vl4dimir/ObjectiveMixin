@@ -59,6 +59,8 @@ There's also a convenient category defined on top of `NSObject` (it's defined in
 
 Be aware that this is just syntactic sugar - even though the method is called on an object instance, it still extends the class itself. I actually prefer using the `Mixin` class, since it is more clear by reading the code that you're extending the class functionality, not just the functionality of a single object.
 
+Finally, if the class you want to mix into already has some of the mixin methods implemented, you can keep their original implementations by passing `NO` for force in `from:to:followInheritance:force`. Otherwise, all methods will be overriden by Mixin ones.
+
 More Subtle Example
 -------------------
 
@@ -72,21 +74,8 @@ Now take a look at `ObjectiveMixinExamples/MountainBike.h`. This class complies 
 
 You should also check out the `Singleton` example in `Examples/Singleton.h`, I use that one a lot.
 
-Why?
-----
-
-This is just another mechanism you can use when designing your class hierarchy, in addition to the usual Objective-C design patterns. For example, you can have an algorithm that is used by multiple classes and you don't want to "pollute" their ancestor by extending it with a category. Plus, this is a runtime feature so it opens a lot of doors for experimentation. Feel free to read up on some Ruby mixin usage examples and implement them in Obj-C.
-
-Fun!
-
-
-
-
-Update by Jamie Montgomerie
----------------------------
-
-Dynamic Subclassing
--------------------
+Dynamic Subclassing (by Jamie Montgomerie)
+------------------------------------------
 
 It's now also possible to dynamically create a subclass at runtime.  In some ways, this is akin to being able to create concrete methods in protocols.
 
@@ -128,12 +117,18 @@ If you name your class with a "Mixin" suffix, and your protocol without one (as 
 Note that calling 'super' in your mixin code will, at runtime, call the method of the _dynamic_ superclass (so, in this case, it would be _UIButton's_ methods that would be called, _not UIView's_).
 
 
-More than one dynamic superclass
---------------------------------
+### More than one dynamic superclass
 
 The convenience -allocWithSuperclass: method isn't powerful enough to allow more than one dynamic superclass, but you can use the more general -classWithSuperclass: method to 'chain' mixins, like this:
 
     [[MySecondUIViewMixin classWithSuperclass:[MyFirstUIViewMixin classWithSuperclass:UIView] alloc] init];
+
+Why?
+----
+
+ObjectiveMixin is just another mechanism you can use when designing your class hierarchy, in addition to the usual Objective-C design patterns. For example, you can have an algorithm that is used by multiple classes and you don't want to "pollute" their ancestor by extending it with a category. Plus, this is a runtime feature so it opens a lot of doors for experimentation. Feel free to read up on some Ruby mixin usage examples and implement them in Obj-C.
+
+Fun!
 
 
 

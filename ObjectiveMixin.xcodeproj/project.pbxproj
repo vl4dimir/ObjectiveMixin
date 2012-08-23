@@ -358,6 +358,9 @@
 /* Begin PBXProject section */
 		E7DE3B3A13165EA500C96724 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
 			buildConfigurationList = E7DE3B3D13165EA500C96724 /* Build configuration list for PBXProject "ObjectiveMixin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
